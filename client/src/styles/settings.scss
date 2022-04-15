@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "font-1";
+  src: url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+}
+
+$font-1: "font-1", sans-serif;
+
+$color-1: orange;
+$color-2: black;
+$color-3: white;
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  font-family: $font-1;
+}
+
+body {
+  background: $color-3;
+  font-family: $font-1;
+}
+
+.connexion {
+  justify-content: center;
+}

@@ -1,0 +1,26 @@
+:root {
+  //Var a modifier pr gerer le zoom
+  --zoom-factor: 1;
+  --init-frame-height: 600px;
+  --init-frame-width: 500px;
+
+  /* 
+  Pour recalibrer :
+  - mettre le zoom a 1,
+  - jouer avec --init-frame-height / width 
+  */
+}
+
+.Lyfpay {
+  @include verticalCenter;
+  //Bonnes dimensions pr zoom==1
+
+  // height: var(--init-frame-height);
+  height: 3000px;
+  // width: var(--init-frame-width);
+
+  transform: scale(var(--zoom-factor));
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -1500px;
+}
