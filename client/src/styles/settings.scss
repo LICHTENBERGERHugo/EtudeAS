@@ -16,6 +16,7 @@ $color-3: white;
 }
 
 * {
+  margin: 0;
   font-family: $font-1;
 }
 
@@ -24,6 +25,15 @@ body {
   font-family: $font-1;
 }
 
-.connexion {
+.section-title {
+  text-align: center;
+  margin: 30px;
+}
+
+.section-content {
+  text-align: center;
+}
+
+.landing-buttons {
   justify-content: center;
 }

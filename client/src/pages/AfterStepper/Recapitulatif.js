@@ -6,8 +6,10 @@ import { Grid } from "@mui/material";
 const Recapitulatif = () => {
   return (
     <div>
-      <h1>Récapitulatif</h1>
-      <h2>Voilà ce que vous avez commandé</h2>
+      <h1 className="section-title">Récapitulatif</h1>
+      <div className="section-content">
+        <h2>Voilà ce que vous avez commandé</h2>
+      </div>
     </div>
   );
 };

@@ -9,8 +9,12 @@ const Paiement = () => {
 
   return (
     <div>
-      <h1>Veuillez renseigner vos informations de paiement</h1>
-      <iframe className="Lyfpay" frameBorder="0" src={URL} scrolling="no" />
+      <h1 className="section-title">
+        Veuillez renseigner vos informations de paiement
+      </h1>
+      <div className="section-content">
+        <iframe className="Lyfpay" frameBorder="0" src={URL} scrolling="no" />
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { ActionTypes } from "@mui/base";
 
 const steps = [
   "Présentation",
@@ -29,6 +30,16 @@ export default function MyStepper() {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (activeStep == 4) {
+      const ok = "OK";
+      fetch("http://localhost:5000/auth/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(ok),
+      }).then(() => {
+        console.log("Inscription finalisée");
+      });
+    }
   };
 
   const handleBack = () => {
@@ -66,7 +77,7 @@ export default function MyStepper() {
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Link
               to={activeStep === 0 ? links[activeStep] : links[activeStep - 1]}
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", color: "#F1511B" }}
             >
               <Button
                 color="inherit"

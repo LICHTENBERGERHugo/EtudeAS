@@ -2,18 +2,17 @@ import React, { useState } from "react";
 
 import MyStepper from "../components/MyStepper";
 import Banniere from "../components/Banniere";
-import { ThemeProvider } from "@mui/material";
-import theme from "../styles/theme";
 import { Outlet } from "react-router-dom";
+import Sponsors from "../components/Sponsors";
 
 const Signin = () => {
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Banniere />
-        <MyStepper />
-        <Outlet />
-      </ThemeProvider>
+      <Banniere />
+      <h1 style={{ marginBottom: 40, textAlign: "center" }}>Inscription</h1>
+      <MyStepper />
+      <Outlet />
+      <Sponsors />
     </div>
   );
 };
