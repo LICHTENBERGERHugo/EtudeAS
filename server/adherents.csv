@@ -1,0 +1,4 @@
+nom,prenom,datenaissance,sexe,adresse,codepostal,ville,mail,tel,sport,role,filevalid,paymentvalid
+LICHTENBERGER,Hugo,2022-05-18T22:00:00.000Z,male,Chemin Des Maisons Blanches,69420,Tupin-et-Semons,hugo.lichtenberger@gmail.com,782044066,athle,admin,2,1
+Hugo,Hugo,2022-05-03T22:00:00.000Z,male,Chemin Des Maisons Blanches,69420,Tupin-et-Semons,hugo.lichtenberger@insa-rennes.fr,782044066,athle,user,1,1
+Lamoureux,Hugo,2022-05-05T22:00:00.000Z,male,Chemin Des Maisons Blanches,69420,Tupin-et-Semons,hugo.lamoureux@insa-rennes.fr,782044066,aviron,user,0,0

@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+
+import { MyContext } from "../Signin";
 
 const Choix = () => {
+  const { setStepCompleted } = useContext(MyContext);
+  useEffect(() => {
+    setStepCompleted(true);
+  }, []);
   return (
     <div>
       <h1 className="section-title">Adhésion AS INSA Rennes</h1>

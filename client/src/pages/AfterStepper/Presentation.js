@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+
+import { MyContext } from "../Signin";
 
 const Presentation = () => {
+  const { setStepCompleted } = useContext(MyContext);
+  useEffect(() => {
+    setStepCompleted(true);
+  }, []);
   return (
     <div>
       <h1 className="section-title">Présentation</h1>
       <div className="section-content">
-        <span>
-          L' A.S. de l'INSA Rennes permet aux étudiants de pratiquer le sport
-          dans les meilleures conditions possibles en parallèle de leurs études.
-          En bref, l'AS c'est : - Environ 600 licenciés - Des événements
-          sportifs organisés toute l'année - Un accompagnement des étudiants
-          durant toutes leurs compétitions de l'année - La possibilité de
-          découvrir et pratiquer un large échantillon de sports
-        </span>
+        L' A.S. de l'INSA Rennes permet aux étudiants de pratiquer le sport dans
+        les meilleures conditions possibles en parallèle de leurs études. En
+        bref, l'AS c'est :
+        <br />
+        - Environ 600 licenciés
+        <br />
+        - Des événements sportifs organisés toute l'année
+        <br />
+        - Un accompagnement des étudiants durant toutes leurs compétitions de
+        l'année
+        <br />
+        - La possibilité de découvrir et pratiquer un large échantillon de
+        sports
         <br />
         <br />
         <br />

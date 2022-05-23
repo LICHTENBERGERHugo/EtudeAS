@@ -1,11 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { Grid } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+
+import { MyContext } from "../Signin";
 
 const Paiement = () => {
   const URL = `https://lyf.apayer.fr/as-insa-rennes/licence-20212022`;
+  const { setStepCompleted } = useContext(MyContext);
+  useEffect(() => {
+    setStepCompleted(true);
+  }, []);
 
   return (
     <div>

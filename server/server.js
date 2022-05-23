@@ -2,6 +2,8 @@
 const express = require("express");
 const mysql = require("mysql");
 const dotenv = require("dotenv");
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
 dotenv.config({ path: "./config/.env" });
 
 // Crée une application express
@@ -26,11 +28,15 @@ const PORT = 5000;
 //Parse URL-encoded bodies (as sent by HTML form)
 app.use(express.urlencoded({ extended: false }));
 
+app.use(cors());
 //Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+app.use(fileUpload());
 
 //Define routes
 app.use("/auth", require("./routes/auth"));
+app.use("/upload", require("./routes/upload"));
+app.use("/csv", require("./routes/export"));
 
 // Démarrer le serveur et écouter un port donné
 app.listen(PORT, () => {

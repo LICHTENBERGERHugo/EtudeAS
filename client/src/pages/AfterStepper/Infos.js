@@ -1,23 +1,74 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { Grid } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+
+import { MyContext } from "../Signin";
 
 const Infos = () => {
+  const { userData, setUserData } = useContext(MyContext);
+  const { setStepCompleted } = useContext(MyContext);
+
+  const [prenom, setPrenom] = useState();
+  const [nom, setNom] = useState();
+  const [sex, setSexe] = useState("male");
+  const [birthdate, setDate] = useState();
+  const [adress, setAdresse] = useState();
+  const [postcode, setCode] = useState();
+  const [city, setVille] = useState();
+  const [mail, setMail] = useState();
+  const [tel, setTel] = useState();
+  const [sport, setSport] = useState("athle");
+  const [password, setPassword] = useState();
+  const [message, setMessage] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const inscription = {
+      prenom,
+      nom,
+      sex,
+      birthdate,
+      adress,
+      postcode,
+      city,
+      mail,
+      tel,
+      sport,
+      password,
+    };
+    await fetch("http://localhost:5000/auth/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(inscription),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data.result);
+        setMessage(data.result);
+        if (
+          data.result === "Votre dossier est enregistré, veuillez continuer"
+        ) {
+          setUserData(inscription);
+          setStepCompleted(true);
+        }
+      });
+  };
+
   return (
     <div>
       <div className="FormRegister">
         <h1 className="section-title">Créer un Compte</h1>
         <div className="section-content">
-          <form action="http://localhost:5000/auth/create" method="POST">
+          <form onSubmit={handleSubmit}>
             <label>Prenom</label>
             <br />
             <input
               type="text"
               id="prenom"
               name="prenom"
-              // onChange={(e) => setPrenom(e.target.value)}
+              onChange={(e) => {
+                setPrenom(e.target.value);
+              }}
             />
             <br />
             <label>Nom</label>
@@ -26,12 +77,21 @@ const Infos = () => {
               type="text"
               id="nom"
               name="nom"
-              // onChange={(e) => setNom(e.target.value)}
+              autoComplete="family-name"
+              onChange={(e) => {
+                setNom(e.target.value);
+              }}
             />
             <br />
             <label>Sexe</label>
             <br />
-            <select id="sex" name="sex">
+            <select
+              id="sex"
+              name="sex"
+              onChange={(e) => {
+                setSexe(e.target.value);
+              }}
+            >
               <option value="male">Homme</option>
               <option value="female">Femme</option>
               <option defaultValue="NSP">Prefer not to say</option>
@@ -39,32 +99,82 @@ const Infos = () => {
             <br />
             <label>Date de naissance </label>
             <br />
-            <input type="date" id="birthdate" name="birthdate" />
+            <input
+              type="date"
+              id="birthdate"
+              name="birthdate"
+              autoComplete="bday"
+              onChange={(e) => {
+                setDate(e.target.value);
+              }}
+            />
 
             <br />
             <label>Adresse </label>
             <br />
-            <input type="text" id="adress" name="adress" />
+            <input
+              type="text"
+              id="adress"
+              name="adress"
+              onChange={(e) => {
+                setAdresse(e.target.value);
+              }}
+            />
             <br />
             <label>Code postal </label>
             <br />
-            <input type="number" id="postcode" name="postcode" />
+            <input
+              type="number"
+              id="postcode"
+              name="postcode"
+              onChange={(e) => {
+                setCode(e.target.value);
+              }}
+            />
             <br />
             <label>Ville </label>
             <br />
-            <input type="text" id="city" name="city" />
+            <input
+              type="text"
+              id="city"
+              name="city"
+              onChange={(e) => {
+                setVille(e.target.value);
+              }}
+            />
             <br />
             <label>Mail </label>
             <br />
-            <input type="email" id="mail" name="mail" />
+            <input
+              type="email"
+              id="mail"
+              name="mail"
+              autoComplete="email"
+              onChange={(e) => {
+                setMail(e.target.value);
+              }}
+            />
             <br />
             <label>Téléphone </label>
             <br />
-            <input type="tel" id="tel" name="tel" />
+            <input
+              type="tel"
+              id="tel"
+              name="tel"
+              onChange={(e) => {
+                setTel(e.target.value);
+              }}
+            />
             <br />
             <label>Sport principal</label>
             <br />
-            <select id="sport" name="sport">
+            <select
+              id="sport"
+              name="sport"
+              onChange={(e) => {
+                setSport(e.target.value);
+              }}
+            >
               <option value="athle">Athlétisme</option>
               <option value="aviron">Aviron</option>
               <option value="bad">Badminton</option>
@@ -132,9 +242,18 @@ const Infos = () => {
             <br />
             <label>Password </label>
             <br />
-            <input type="password" id="password" name="password" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autoComplete="new-password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
             <br />
             <button type="submit">Valider</button>
+            {message === undefined ? "" : <h4>{message}</h4>}
             {/* {validFields ? "" : <h4> Veuillez remplir les champs correctement</h4>} */}
           </form>
         </div>
