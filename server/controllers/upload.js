@@ -15,21 +15,25 @@ module.exports.store = (req, res) => {
   }
   certif = req.files.certif;
   console.log(req.files.certif);
-  uploadPath = __dirname + "/../docs/" + certif.name;
+  uploadPath = __dirname + "/../docs/" + req.body.mail + ".pdf";
   if (certif.mimetype != "application/pdf") {
     return res.send({ result: "Le fichier n'a pas la bonne extension" });
   }
+  //TODO effacer le fichier si il existe déjà
+  // if (req.body.update === "true") {
+  //   fs.unlinkSync(uploadPath);
+  // }
 
   certif.mv(uploadPath, (err) => {
     if (err) {
       return res.status(500).send(err);
     }
   });
+  console.log(req.body.mail);
 
-  // TODO Vérifier que le champ filename n'est pas déjà rempli pour cet utilisateur
   db.query(
-    "UPDATE adherents SET filename=? WHERE mail=?",
-    [uploadPath, req.body.mail],
+    "UPDATE adherents SET filename=?,filevalid=0 WHERE mail=?",
+    [req.body.mail + ".pdf", req.body.mail],
     (err, results) => {
       if (err) {
         res.send({ result: "An error occured" });

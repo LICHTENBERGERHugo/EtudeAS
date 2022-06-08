@@ -11,8 +11,9 @@ import Infos from "./pages/AfterStepper/Infos";
 import Certif from "./pages/AfterStepper/Certif";
 import Paiement from "./pages/AfterStepper/Paiement";
 import Recapitulatif from "./pages/AfterStepper/Recapitulatif";
-import UserVue from "./pages/UserVue";
-import AdminVue from "./pages/AdminVue";
+import UserVue from "./pages/Private/UserVue";
+import AdminVue from "./pages/Private/AdminVue";
+import Private from "./pages/Private/Private";
 
 const Home = () => {
   return (
@@ -30,8 +31,10 @@ const Home = () => {
               <Route path="/signin/recap" element={<Recapitulatif />} />
             </Route>
             <Route path="/connect" element={<Connexion />} />
-            <Route path="/connect/user" element={<UserVue />} />
-            <Route path="/connect/admin" element={<AdminVue />} />
+            <Route path="/private" element={<Private />}>
+              <Route path="/private/user" element={<UserVue />} />
+              <Route path="/private/admin" element={<AdminVue />} />
+            </Route>
             <Route path="*" element={<Landing />} />
           </Routes>
         </BrowserRouter>

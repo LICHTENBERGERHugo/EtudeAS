@@ -37,6 +37,8 @@ app.use(fileUpload());
 app.use("/auth", require("./routes/auth"));
 app.use("/upload", require("./routes/upload"));
 app.use("/csv", require("./routes/export"));
+app.use("/download", require("./routes/export"));
+app.use("/api", require("./routes/users"));
 
 // Démarrer le serveur et écouter un port donné
 app.listen(PORT, () => {

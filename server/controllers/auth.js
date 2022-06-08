@@ -115,6 +115,7 @@ module.exports.login = async (req, res) => {
             result: true,
             role: entry.role,
             nom: entry.nom,
+            mail: mail,
             prenom: entry.prenom,
             payvalid: entry.paymentvalid,
             filevalid: entry.filevalid,

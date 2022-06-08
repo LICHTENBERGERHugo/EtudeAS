@@ -100,7 +100,9 @@ export default function MyStepper() {
                 to={links[activeStep + 1]}
                 style={{ textDecoration: "none" }}
               >
-                <Button onClick={handleNext}>Suite</Button>
+                <Button onClick={handleNext} variant="contained">
+                  Suite
+                </Button>
               </Link>
             ) : (
               <Button disabled>Suite</Button>

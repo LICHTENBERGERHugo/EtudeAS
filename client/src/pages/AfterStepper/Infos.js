@@ -253,7 +253,7 @@ const Infos = () => {
             />
             <br />
             <button type="submit">Valider</button>
-            {message === undefined ? "" : <h4>{message}</h4>}
+            {message != undefined && <h4>{message}</h4>}
             {/* {validFields ? "" : <h4> Veuillez remplir les champs correctement</h4>} */}
           </form>
         </div>

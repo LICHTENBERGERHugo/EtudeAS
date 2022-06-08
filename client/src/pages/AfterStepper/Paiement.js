@@ -15,6 +15,10 @@ const Paiement = () => {
         Veuillez renseigner vos informations de paiement
       </h1>
       <div className="section-content">
+        <label>Cette étape est obligatoire.</label>
+        <br />
+        <br />
+
         <iframe className="Lyfpay" frameBorder="0" src={URL} scrolling="no" />
       </div>
     </div>

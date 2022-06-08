@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 
 import { MyContext } from "../Signin";
@@ -42,6 +43,8 @@ const Certif = () => {
     <div>
       <h1 className="section-title">Certificat médical</h1>
       <div className="section-content">
+        <label>Cette étape est optionnelle.</label>
+        <br />
         <br />
         <form onSubmit={handleSubmit}>
           <label>Sélectionner le fichier PDF </label>
@@ -54,7 +57,7 @@ const Certif = () => {
             onChange={handleChange}
           />
           <button type="submit">Envoyer</button>
-          {message === undefined ? "" : <h4>{message}</h4>}
+          {message != undefined && <h4>{message}</h4>}
         </form>
       </div>
     </div>
