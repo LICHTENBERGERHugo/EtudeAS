@@ -17,6 +17,14 @@ const Choix = () => {
           événements de l'ASSOCIATION SPORTIVE. Vous serez licencié à la FFSU.
           <br />
           Montant à payer pour la durée de l'adhésion : 22,50 €.
+          <br />
+          <br />
+          Les informations recueillies sur ce formulaire sont enregistrées dans
+          un fichier informatisé par l'Association Sportive dans le but de créer
+          vos licences sportives.
+          <br />
+          Elles sont conservées pour une durée de 1 an et seront supprimées par
+          la suite.
         </span>
       </div>
     </div>
