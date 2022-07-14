@@ -46,6 +46,10 @@ const Certif = () => {
         <label>Cette étape est optionnelle.</label>
         <br />
         <br />
+        Votre certificat médical fera uniquement l’objet d’un traitement en
+        interne et ne sera, en aucun cas, divulgué à un tiers.
+        <br />
+        <br />
         <form onSubmit={handleSubmit}>
           <label>Sélectionner le fichier PDF </label>
           <br />

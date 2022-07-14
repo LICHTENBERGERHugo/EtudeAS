@@ -28,6 +28,15 @@ const Recapitulatif = () => {
           A l'adresse : {adress},{postcode},{city}
         </h3>
         <br />
+        Conformément aux lois « Informatique & Liberté » et « RGPD », vous
+        pouvez exercer vos droits d'accès aux données, de rectification, de
+        limitation ou d'opposition en contactant l'AS via son adresse mail : [
+        mailto:as@insa-rennes.fr | as@insa-rennes.fr ou bien en contactant
+        Aymeric.Delaroche@insa-rennes.fr ]
+        <br />
+        <br />
+        En cas de différend, vous avez le droit d'introduire une réclamation
+        (plainte) auprès de la Cnil.
         {/* <h3>Telephone : {tel}</h3> */}
         <br />
       </div>
