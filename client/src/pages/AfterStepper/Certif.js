@@ -7,6 +7,7 @@ const Certif = () => {
   let [file, setFile] = useState({});
   let [filename, setFilename] = useState();
   let [message, setMessage] = useState();
+  const [checked, setChecked] = React.useState(false);
 
   const { userData } = useContext(MyContext);
   const { setStepCompleted } = useContext(MyContext);
@@ -39,6 +40,10 @@ const Certif = () => {
     setFilename(e.target.files[0].name);
   };
 
+  const handleChangeCheckbox = (event) => {
+    setChecked(event.target.checked);
+  };
+
   return (
     <div>
       <h1 className="section-title">Certificat médical</h1>
@@ -48,6 +53,14 @@ const Certif = () => {
         <br />
         Votre certificat médical fera uniquement l’objet d’un traitement en
         interne et ne sera, en aucun cas, divulgué à un tiers.
+        <br />
+        <br />
+        <FormControlLabel
+          control={
+            <Checkbox checked={checked} onChange={handleChangeCheckbox} />
+          }
+          label="Je confirme mon choix"
+        />
         <br />
         <br />
         <form onSubmit={handleSubmit}>
@@ -60,7 +73,9 @@ const Certif = () => {
             accept=".pdf"
             onChange={handleChange}
           />
-          <button type="submit">Envoyer</button>
+          <button type="submit" property="disabled">
+            Envoyer
+          </button>
           {message != undefined && <h4>{message}</h4>}
         </form>
       </div>
