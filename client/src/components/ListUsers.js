@@ -16,21 +16,21 @@ const ListUsers = (props) => {
 
   let URLGet = "";
   if (props.download) {
-    URLGet = "http://localhost:5000/api/getAllFiles";
+    URLGet = "http://193.52.94.171:5000/api/getAllFiles";
   } else {
-    URLGet = "http://localhost:5000/api/getAllPAyments";
+    URLGet = "http://193.52.94.171:5000/api/getAllPAyments";
   }
 
   let URLPutValidate = "";
   if (props.download) {
-    URLPutValidate = "http://localhost:5000/api/updateUsersFiles";
+    URLPutValidate = "http://193.52.94.171:5000/api/updateUsersFiles";
   } else {
-    URLPutValidate = "http://localhost:5000/api/updateUsersPayments";
+    URLPutValidate = "http://193.52.94.171:5000/api/updateUsersPayments";
   }
 
   let URLPutRefuse = "";
   if (props.download) {
-    URLPutRefuse = "http://localhost:5000/api/refuseUsersFiles";
+    URLPutRefuse = "http://193.52.94.171:5000/api/refuseUsersFiles";
   }
 
   function download(filename, text, requestParam) {
@@ -115,7 +115,7 @@ const ListUsers = (props) => {
 
   const handleDownload = async (mail) => {
     console.log(mail);
-    await fetch("http://localhost:5000/api/getUserFile?mail=" + mail, {
+    await fetch("http://193.52.94.171:5000/api/getUserFile?mail=" + mail, {
       method: "GET",
     })
       .then((res) => {
@@ -125,7 +125,7 @@ const ListUsers = (props) => {
         console.log(data[0].filename);
         download(
           data.filename + "Certif",
-          "http://localhost:5000/download/downloadCertif?filename=",
+          "http://193.52.94.171:5000/download/downloadCertif?filename=",
           data[0].filename
         );
       });

@@ -21,7 +21,7 @@ const Certif = () => {
     formData.append("certif", file);
     console.log(formData.get("certif"));
     formData.append("mail", userData.mail);
-    await fetch("http://localhost:5000/upload/postFile", {
+    await fetch("http://193.52.94.171:5000/upload/postFile", {
       method: "POST",
       body: formData,
     })

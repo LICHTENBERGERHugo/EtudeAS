@@ -28,7 +28,7 @@ const AdminVue = () => {
   }
 
   const handleExport = async () => {
-    await fetch("http://localhost:5000/csv/export", { method: "GET" })
+    await fetch("http://193.52.94.171:5000/csv/export", { method: "GET" })
       .then((res) => {
         return res.json();
       })
@@ -38,12 +38,12 @@ const AdminVue = () => {
       })
       .then(() => {
         // Start file download.
-        download("adherents.csv", "http://localhost:5000/csv/generate");
+        download("adherents.csv", "http://193.52.94.171:5000/csv/generate");
       });
   };
 
   const handleDelete = async () => {
-    await fetch("http://localhost:5000/api/deleteAllUsers", {
+    await fetch("http://193.52.94.171:5000/api/deleteAllUsers", {
       method: "DELETE",
     })
       .then((res) => {
