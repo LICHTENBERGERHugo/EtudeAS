@@ -40,9 +40,9 @@ const Certif = () => {
     setFilename(e.target.files[0].name);
   };
 
-  const handleChangeCheckbox = (event) => {
-    setChecked(event.target.checked);
-  };
+  // const handleChangeCheckbox = (event) => {
+  //   setChecked(event.target.checked);
+  // };
 
   return (
     <div>
@@ -55,14 +55,14 @@ const Certif = () => {
         interne et ne sera, en aucun cas, divulgué à un tiers.
         <br />
         <br />
-        <FormControlLabel
+        {/* <FormControlLabel
           control={
             <Checkbox checked={checked} onChange={handleChangeCheckbox} />
           }
           label="Je confirme mon choix"
         />
         <br />
-        <br />
+        <br /> */}
         <form onSubmit={handleSubmit}>
           <label>Sélectionner le fichier PDF </label>
           <br />
@@ -73,9 +73,7 @@ const Certif = () => {
             accept=".pdf"
             onChange={handleChange}
           />
-          <button type="submit" property="disabled">
-            Envoyer
-          </button>
+          <button type="submit">Envoyer</button>
           {message != undefined && <h4>{message}</h4>}
         </form>
       </div>
