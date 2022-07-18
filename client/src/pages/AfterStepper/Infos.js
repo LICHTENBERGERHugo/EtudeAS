@@ -34,7 +34,7 @@ const Infos = () => {
       sport,
       password,
     };
-    await fetch("http://localhost:5000/auth/create", {
+    await fetch("http://193.52.94.171:5000/auth/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inscription),

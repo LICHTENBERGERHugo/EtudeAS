@@ -16,7 +16,7 @@ const Connexion = () => {
     e.preventDefault();
     const credentials = { mail, password };
 
-    await fetch("http://localhost:5000/auth/getUser", {
+    await fetch("http://193.52.94.171:5000/auth/getUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),

@@ -35,7 +35,7 @@ export default function MyStepper() {
     setStepCompleted(false);
     // if (activeStep == 4) {
     //   const ok = "OK";
-    //   fetch("http://localhost:5000/auth/create", {
+    //   fetch("http://193.52.94.171:5000/auth/create", {
     //     method: "POST",
     //     headers: { "Content-Type": "application/json" },
     //     body: JSON.stringify(ok),

@@ -7,6 +7,7 @@ const Certif = () => {
   let [file, setFile] = useState({});
   let [filename, setFilename] = useState();
   let [message, setMessage] = useState();
+  const [checked, setChecked] = React.useState(false);
 
   const { userData } = useContext(MyContext);
   const { setStepCompleted } = useContext(MyContext);
@@ -20,7 +21,7 @@ const Certif = () => {
     formData.append("certif", file);
     console.log(formData.get("certif"));
     formData.append("mail", userData.mail);
-    await fetch("http://localhost:5000/upload/postFile", {
+    await fetch("http://193.52.94.171:5000/upload/postFile", {
       method: "POST",
       body: formData,
     })
@@ -39,6 +40,10 @@ const Certif = () => {
     setFilename(e.target.files[0].name);
   };
 
+  // const handleChangeCheckbox = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
   return (
     <div>
       <h1 className="section-title">Certificat médical</h1>
@@ -50,6 +55,14 @@ const Certif = () => {
         interne et ne sera, en aucun cas, divulgué à un tiers.
         <br />
         <br />
+        {/* <FormControlLabel
+          control={
+            <Checkbox checked={checked} onChange={handleChangeCheckbox} />
+          }
+          label="Je confirme mon choix"
+        />
+        <br />
+        <br /> */}
         <form onSubmit={handleSubmit}>
           <label>Sélectionner le fichier PDF </label>
           <br />

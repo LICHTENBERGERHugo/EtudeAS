@@ -17,7 +17,7 @@ const Presentation = () => {
         <br />
         - Environ 600 licenciés
         <br />
-        - Des événements sportifs organisés toute l'année
+        - Des évènements sportifs organisés toute l'année
         <br />
         - Un accompagnement des étudiants durant toutes leurs compétitions de
         l'année

@@ -42,5 +42,5 @@ app.use("/api", require("./routes/users"));
 
 // Démarrer le serveur et écouter un port donné
 app.listen(PORT, () => {
-  console.log(`Server started on : http://localhost:${PORT}`);
+  console.log(`Server started on : http://193.52.94.171:${PORT}`);
 });
